@@ -4,6 +4,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import tokenInterceptor from './services/tokenInterceptor';
+
 import PrimeVue from 'primevue/config';
 import Button from 'primevue/button';
 import Toolbar from 'primevue/toolbar';
@@ -16,6 +18,8 @@ import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
+
+tokenInterceptor(store);
 
 const app = createApp(App);
 
