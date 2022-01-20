@@ -1,4 +1,5 @@
 import { createStore, createLogger } from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 import pokemons from './modules/pokemons';
 import favorites from './modules/favorites';
 
@@ -10,5 +11,7 @@ export default createStore({
     favorites,
   },
   strict: debug,
-  plugins: debug ? [createLogger()] : [],
+  plugins: debug
+    ? [createLogger(), createPersistedState()]
+    : [createPersistedState()],
 });
