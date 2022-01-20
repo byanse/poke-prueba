@@ -46,7 +46,7 @@ const actions = {
       const { data } = await api.get(pokemon.url);
 
       const pokemonIsSelected = state.selectedPokemons.find(
-        p => p.id === data.id
+        (p) => p.id === data.id
       );
 
       if (!pokemonIsSelected) {
