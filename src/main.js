@@ -10,6 +10,7 @@ import Toolbar from 'primevue/toolbar';
 import Image from 'primevue/image';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import Card from 'primevue/card';
 
 import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
@@ -27,5 +28,6 @@ app.component('Toolbar', Toolbar);
 app.component('Image', Image);
 app.component('DataTable', DataTable);
 app.component('Column', Column);
+app.component('Card', Card);
 
 app.mount('#app');
