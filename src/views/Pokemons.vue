@@ -49,8 +49,12 @@
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords}"
       >
         <Column header="Favorito">
-          <template>
-            <Button label="Agregar" class="p-button-primary" />
+          <template #body="{ data }">
+            <Button
+              label="Agregar"
+              class="p-button-primary"
+              @click="addToFavorites(data)"
+            />
           </template>
         </Column>
         <Column field="name" header="Nombre"></Column>
@@ -63,10 +67,11 @@
           </template>
         </Column>
         <Column header="Eliminar">
-          <template>
+          <template #body="{ data }">
             <Button
               icon="pi pi-times"
               class="p-button-rounded p-button-danger"
+              @click="removeFromFavorites(data)"
             />
           </template>
         </Column>
@@ -114,6 +119,12 @@ export default {
       },
       selectPokemon(pokemon) {
         store.dispatch('pokemons/selectPokemon', pokemon);
+      },
+      addToFavorites(pokemon) {
+        store.dispatch('favorites/add', pokemon);
+      },
+      removeFromFavorites(pokemon) {
+        store.dispatch('favorites/remove', pokemon);
       },
     };
   },
